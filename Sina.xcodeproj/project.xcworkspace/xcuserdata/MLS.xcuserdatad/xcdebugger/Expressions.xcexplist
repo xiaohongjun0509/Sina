@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[UIViewController(Extention) addRightButton:title:]:UIViewController+Extention.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "buttonItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[NavigationController pushViewController:animated:]:NavigationController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate application:didFinishLaunchingWithOptions:]:AppDelegate.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
