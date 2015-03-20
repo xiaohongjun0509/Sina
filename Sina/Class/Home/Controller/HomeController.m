@@ -37,6 +37,15 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
     //从网络加载数据
     [self showRefreshControl];
 //    [self loadDataFromServer];
+    [self setFooterView];
+    
+}
+
+
+- (void)setFooterView
+{
+    self.isFooterShowing = NO;
+    
 }
 
 -  (void)showRefreshControl
@@ -193,7 +202,8 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{    
+{
+//    self.tableView.tableFooterView =
     return self.status.count;
 }
 
@@ -219,6 +229,9 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
     HomeViewController1 *controller = [HomeViewController1 alloc];
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
+
 
 
 

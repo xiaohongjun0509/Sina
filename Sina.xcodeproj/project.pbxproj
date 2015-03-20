@@ -34,6 +34,7 @@
 		2548560E1ABAA4AB006C66F8 /* HJTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2548560D1ABAA4AB006C66F8 /* HJTextView.m */; };
 		254856111ABAAECE006C66F8 /* HJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 254856101ABAAECE006C66F8 /* HJPhotoView.m */; };
 		254856141ABABC86006C66F8 /* HJToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 254856131ABABC86006C66F8 /* HJToolBar.m */; };
+		255345511ABBF602001EF900 /* HJFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 255345501ABBF602001EF900 /* HJFooterView.m */; };
 		25D00F101AA9A3CF0049C2F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D00F0F1AA9A3CF0049C2F2 /* main.m */; };
 		25D00F1B1AA9A3CF0049C2F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D00F1A1AA9A3CF0049C2F2 /* Images.xcassets */; };
 		25D00F1E1AA9A3CF0049C2F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25D00F1C1AA9A3CF0049C2F2 /* LaunchScreen.xib */; };
@@ -118,6 +119,8 @@
 		254856101ABAAECE006C66F8 /* HJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJPhotoView.m; sourceTree = "<group>"; };
 		254856121ABABC86006C66F8 /* HJToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJToolBar.h; sourceTree = "<group>"; };
 		254856131ABABC86006C66F8 /* HJToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJToolBar.m; sourceTree = "<group>"; };
+		2553454F1ABBF602001EF900 /* HJFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJFooterView.h; sourceTree = "<group>"; };
+		255345501ABBF602001EF900 /* HJFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJFooterView.m; sourceTree = "<group>"; };
 		25D00F0A1AA9A3CF0049C2F2 /* Sina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D00F0E1AA9A3CF0049C2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25D00F0F1AA9A3CF0049C2F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -453,6 +456,8 @@
 				251E33291AB98A600028DBC3 /* ModalCell.xib */,
 				251E33321AB9923F0028DBC3 /* MainCellFrame.h */,
 				251E33331AB9923F0028DBC3 /* MainCellFrame.m */,
+				2553454F1ABBF602001EF900 /* HJFooterView.h */,
+				255345501ABBF602001EF900 /* HJFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -665,6 +670,7 @@
 				25D015391AA9A4380049C2F2 /* MeController.m in Sources */,
 				254856111ABAAECE006C66F8 /* HJPhotoView.m in Sources */,
 				25D0153A1AA9A4380049C2F2 /* MessageController.m in Sources */,
+				255345511ABBF602001EF900 /* HJFooterView.m in Sources */,
 				254856141ABABC86006C66F8 /* HJToolBar.m in Sources */,
 				254695A31AAC1FC000122053 /* AFURLResponseSerialization.m in Sources */,
 				254695A11AAC1FC000122053 /* AFURLConnectionOperation.m in Sources */,
