@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tabbar.h"
-@interface TabBarController : UITabBarController<PlusButtonDelegate>
+@interface TabBarController : UITabBarController<PlusButtonDelegate,UITabBarControllerDelegate>
 
 
 @end

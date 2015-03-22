@@ -1,14 +1,14 @@
 //
-//  ModalCell.m
+//  HJStatusCell.m
 //  Sina
 //
-//  Created by xhj on 15-3-18.
+//  Created by xhj on 15-3-22.
 //  Copyright (c) 2015年 xhj. All rights reserved.
 //
 
-#import "ModalCell.h"
+#import "HJStatusCell.h"
 
-@implementation ModalCell
+@implementation HJStatusCell
 
 - (void)awakeFromNib {
     // Initialization code

@@ -11,4 +11,9 @@
 #import "UIViewController+Extention.h"
 @interface HomeController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
+-(void)showRefreshControl;
+
+
+-(void)UpToTop;
+
 @end

@@ -14,4 +14,6 @@
 #define ACCESSTOKEN @"2.001SzMnFuMVFSE8af71ec565zuLtzC"
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define UID @"5307800180"
+
 #endif

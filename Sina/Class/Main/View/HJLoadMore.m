@@ -21,11 +21,14 @@
     if (self = [super initWithFrame:frame]) {
         
         self.label = [[UILabel alloc] init];
+        [self.label setTextAlignment:NSTextAlignmentCenter];
+        [self.label setTextColor:[UIColor grayColor]];
         [self addSubview:self.label];
         self.indicatorView = [[UIActivityIndicatorView alloc] init];
+        [self.indicatorView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
         [self addSubview:self.indicatorView];
         self.indicatorView.hidesWhenStopped =YES;
-        self.label.backgroundColor = [UIColor redColor];
+       
         
     }
     return self;
@@ -40,15 +43,23 @@
     
 }
 
--(void)setText:(NSString *)str
-{
-    [self.label setText:str];
-}
+
 
 -(void)endRefreshing
 {
     [self.indicatorView stopAnimating];
+    self.refreshing = NO;
+    self.label.text = @"上拉可以加载更多的数据。。。";
     
 }
+
+-(void)beginRefreshing
+{
+    [self.indicatorView startAnimating];
+    self.refreshing = YES;
+    self.label.text = @"正在拼了命加载。。。";
+}
+
+
 
 @end

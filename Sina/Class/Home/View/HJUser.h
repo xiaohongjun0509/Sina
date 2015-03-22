@@ -8,17 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MainModal : NSObject
+@interface HJUser : NSObject
 @property(nonatomic,copy) NSString *name;
-@property(nonatomic,copy) NSString *text;
+@property(nonatomic,copy) NSString *desc;
 
 @property(nonatomic,copy) NSString *imageUrl;
 
-@property (nonatomic,copy) NSString *source;
 
-
-@property(nonatomic,copy) NSString *time;
-
-@property(nonatomic,copy) NSString *since_id;
 - (instancetype)initWithDict:(NSDictionary *)dict;
 @end

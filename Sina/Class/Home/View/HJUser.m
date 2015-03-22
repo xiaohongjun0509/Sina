@@ -6,18 +6,18 @@
 //  Copyright (c) 2015年 xhj. All rights reserved.
 //
 
-#import "MainModal.h"
+#import "HJUser.h"
 
-@implementation MainModal
+@implementation HJUser
 
 - (instancetype)initWithDict:(NSDictionary *)dict
 {
     if(self == [super init])
     {
-        self.name = dict[@"user"][@"name"];
-        self.imageUrl = dict[@"user"][@"avatar_large"];
-        self.text = dict[@"text"];
-        self.since_id = dict[@"id"];
+        self.name = dict[@"name"];
+        self.imageUrl = dict[@"avatar_large"];
+        self.desc  = dict[@"description"];
+       
     }
     return self;
 }

@@ -10,8 +10,13 @@
 
 @interface HJLoadMore : UIView
 
+
+@property(nonatomic,assign) BOOL refreshing;
 -(void)setText:(NSString *)str;
 
 -(void)endRefreshing;
+-(void)beginRefreshing;
+
+
 
 @end

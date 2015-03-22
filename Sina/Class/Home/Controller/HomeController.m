@@ -10,10 +10,12 @@
 #import "HomeViewController1.h"
 #import "TitleButton.h"
 #import "AFNetworking.h"
-#import "MainModal.h"
-#import "ModalCell.h"
+#import "HJUser.h"
 #import "NSBundle+Load.h"
 #import "HJLoadMore.h"
+#import "HJHttpTool.h"
+#import "UnreadModal.h"
+#import "HJStatusModel.h"
 static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_timeline.json";
 
 @interface HomeController ()
@@ -23,6 +25,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 @property(assign)BOOL isClicked;
 @property (nonatomic,strong)NSMutableArray *status;
 @property (nonatomic,strong) UIRefreshControl  *refresh;
+@property (nonatomic,strong) HJLoadMore *loadMore;
 @property (nonatomic,assign) BOOL isFooterShowing;
 @end
 
@@ -32,19 +35,23 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
     [super viewDidLoad];
     
     [self loadViewController];
-    
-    
+
     //从网络加载数据
     [self showRefreshControl];
 //    [self loadDataFromServer];
     [self setFooterView];
+    
     
 }
 
 
 - (void)setFooterView
 {
-    self.isFooterShowing = NO;
+
+    HJLoadMore *loadMore = [[HJLoadMore alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    self.loadMore = loadMore;
+    self.tableView.tableFooterView =loadMore;
+    self.tableView.tableFooterView.hidden = YES;
     
 }
 
@@ -72,9 +79,9 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
     AFHTTPRequestOperationManager *arom = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObject:ACCESSTOKEN forKey:@"access_token"];
     if (self.status.count) {
-        MainModal *modal = [self.status firstObject];
+        HJStatusModel *modal = [self.status firstObject];
         //用since——id来标记微博消息的顺序，但是，从服务器返回的消息中用id来标记的。
-        dict[@"since_id"] = modal.since_id;
+        dict[@"since_id"] = modal.lastStatusId;
     }
     [arom GET:GetParams parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -90,10 +97,16 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
         //在合适的地方添加上自动刷新的功能。。。。这里现在不做处理
 //        self.tableView.tableFooterView  = [[HJLoadMore alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 44)];
         //数据加载完之后，发送提示。
+        //将TabBar badgeValue上的值进行设置
+        self.tabBarItem.badgeValue = nil;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error");
     }];
 }
+
+
+
+
 
 -(NSMutableArray *)status
 {
@@ -136,7 +149,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 {
     NSMutableArray *mArray = [NSMutableArray array];
     for (id dict in rawArray) {
-        MainModal *modal = [[MainModal alloc] initWithDict:dict];
+        HJStatusModel *modal = [[HJStatusModel alloc] initWithDict:dict];
         [mArray addObject:modal];
     }
     
@@ -203,7 +216,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    self.tableView.tableFooterView =
+    self.tableView.tableFooterView.hidden = self.status.count == 0 ? YES:NO;
     return self.status.count;
 }
 
@@ -215,7 +228,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    MainModal *modal = [self.status objectAtIndex:indexPath.row];
+    HJStatusModel *modal = [self.status objectAtIndex:indexPath.row];
     cell.textLabel.text =  modal.text;
     //在主线程进行网络操作会阻塞当前的线程。所以要放在子线程里面。
 //    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:modal.imageUrl ]];
@@ -231,8 +244,51 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 }
 
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.status.count <= 0 || self.loadMore.refreshing) return ;
+    CGFloat delta = scrollView.contentSize.height - scrollView.contentOffset.y;
+    
+    CGFloat sawFooterH = self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height;
+    
+    if (delta <= sawFooterH) {
+        [self.loadMore beginRefreshing];
+        [self loadMoreStatuses];
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            // 加载更多的微博数据
+//            [self loadMoreStatuses];
+//        });
+    }
+    
+
+
+}
+
+- (void)loadMoreStatuses
+{
+    NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    HJStatusModel *model = [self.status lastObject];
+    [dict setValue:ACCESSTOKEN forKey:@"access_token"];
+    [dict setValue:model.lastStatusId forKey:@"max_id"];
+    [HJHttpTool get:url params:dict success:^(id  result) {
+        NSArray *newStatusArray = [self parseArrayToModal:result[@"statuses"]];
+//        NSLog(@"new %d",self.status.count);
+        [self.status addObjectsFromArray:newStatusArray];
+        [self.tableView reloadData];
+//        NSLog(@"old %d",self.status.count);
+        [self.loadMore endRefreshing];
+        
+    } fail:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 
 
+-(void)UpToTop
+{
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
 
 @end
