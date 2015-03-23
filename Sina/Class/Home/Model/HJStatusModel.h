@@ -17,7 +17,8 @@
 @property(nonatomic,copy) NSString *text;
 @property(nonatomic,copy) NSString *source;
 @property(nonatomic,copy) NSString *titleString;
-
+@property (nonatomic,copy) NSString *time;
+@property (nonatomic,strong) HJStatusModel *retweeted_status;
 
 -(instancetype)initWithDict:(NSDictionary *)dict;
 

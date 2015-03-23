@@ -16,6 +16,9 @@
 #import "HJHttpTool.h"
 #import "UnreadModal.h"
 #import "HJStatusModel.h"
+#import "HJStatusCell.h"
+#import "HJStatusDetailViewFrame.h"
+//#import "HJ"
 static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_timeline.json";
 
 @interface HomeController ()
@@ -177,8 +180,11 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
     self.navigationItem.titleView = _titleButton;
     
     self.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.tableView.backgroundColor = [UIColor grayColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+//    self.tableView.style = UITableViewStylePlain;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     self.isFooterShowing = NO;
 
@@ -223,24 +229,38 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    
+//    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//    }
+//    
     HJStatusModel *modal = [self.status objectAtIndex:indexPath.row];
-    cell.textLabel.text =  modal.text;
-    //在主线程进行网络操作会阻塞当前的线程。所以要放在子线程里面。
-//    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:modal.imageUrl ]];
-//    cell.imageView.image = [UIImage imageWithData:data];
+//    cell.textLabel.text =  modal.text;
+//    //在主线程进行网络操作会阻塞当前的线程。所以要放在子线程里面。
+////    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:modal.imageUrl ]];
+////    cell.imageView.image = [UIImage imageWithData:data];
+    
+    HJStatusCell *cell = [[HJStatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    [cell setStatusModel:modal];
+    
     return cell;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     HJStatusModel *model = [self.status objectAtIndex:indexPath.row];
+
+    HJStatusDetailViewFrame *frame  = [[HJStatusDetailViewFrame alloc] initWithModel:model];
+//    return frame.ViewHeight + 45;
+    return frame.detailViewHeight +  35 + 10;
 }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HomeViewController1 *controller = [HomeViewController1 alloc];
-    [self.navigationController pushViewController:controller animated:YES];
+//    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

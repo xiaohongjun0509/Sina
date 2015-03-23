@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HJStatusToolBarFrams.h"
+#import "HJStatusOriginViewFrame.h"
 @interface HJStatusToolBar : UIView
 
+
+//@property (nonatomic,strong) HJStatusToolBarFrams *frame;
+-(instancetype) initWithModel :(HJStatusModel*)model;
 @end

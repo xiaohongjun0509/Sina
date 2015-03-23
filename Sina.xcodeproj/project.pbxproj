@@ -18,6 +18,10 @@
 		25450C5F1ABEA748007F6D35 /* HJStatusOriginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25450C5E1ABEA748007F6D35 /* HJStatusOriginView.m */; };
 		25450C621ABEA75F007F6D35 /* HJStatusRetweetedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25450C611ABEA75F007F6D35 /* HJStatusRetweetedView.m */; };
 		25450C681ABEA9F9007F6D35 /* HJStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25450C671ABEA9F9007F6D35 /* HJStatusModel.m */; };
+		25450C6B1ABEBA81007F6D35 /* HJStatusOriginViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 25450C6A1ABEBA81007F6D35 /* HJStatusOriginViewFrame.m */; };
+		25450C6E1ABEC7C4007F6D35 /* HJStatusToolBarFrams.m in Sources */ = {isa = PBXBuildFile; fileRef = 25450C6D1ABEC7C4007F6D35 /* HJStatusToolBarFrams.m */; };
+		25450C711ABEF964007F6D35 /* HJStatusRetweetedViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 25450C701ABEF964007F6D35 /* HJStatusRetweetedViewFrame.m */; };
+		25450C741ABF0411007F6D35 /* HJStatusDetailViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 25450C731ABF0411007F6D35 /* HJStatusDetailViewFrame.m */; };
 		254695861AAC0AB000122053 /* AuthorizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254695851AAC0AB000122053 /* AuthorizationController.m */; };
 		2546959C1AAC1FC000122053 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2546958A1AAC1FC000122053 /* AFHTTPRequestOperation.m */; };
 		2546959D1AAC1FC000122053 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2546958C1AAC1FC000122053 /* AFHTTPRequestOperationManager.m */; };
@@ -55,6 +59,7 @@
 		25D015431AA9BB9C0049C2F2 /* HomeViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D015421AA9BB9C0049C2F2 /* HomeViewController1.m */; };
 		25D015461AA9BC0C0049C2F2 /* UIViewController+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D015451AA9BC0C0049C2F2 /* UIViewController+Extention.m */; };
 		25D015491AA9CCA90049C2F2 /* MessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D015481AA9CCA90049C2F2 /* MessageDetailController.m */; };
+		25FDB5AB1ABFA00F007CB5D7 /* NSDate+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FDB5AA1ABFA00F007CB5D7 /* NSDate+Extention.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +95,14 @@
 		25450C611ABEA75F007F6D35 /* HJStatusRetweetedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusRetweetedView.m; sourceTree = "<group>"; };
 		25450C661ABEA9F9007F6D35 /* HJStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJStatusModel.h; sourceTree = "<group>"; };
 		25450C671ABEA9F9007F6D35 /* HJStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusModel.m; sourceTree = "<group>"; };
+		25450C691ABEBA81007F6D35 /* HJStatusOriginViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJStatusOriginViewFrame.h; sourceTree = "<group>"; };
+		25450C6A1ABEBA81007F6D35 /* HJStatusOriginViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusOriginViewFrame.m; sourceTree = "<group>"; };
+		25450C6C1ABEC7C4007F6D35 /* HJStatusToolBarFrams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJStatusToolBarFrams.h; sourceTree = "<group>"; };
+		25450C6D1ABEC7C4007F6D35 /* HJStatusToolBarFrams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusToolBarFrams.m; sourceTree = "<group>"; };
+		25450C6F1ABEF964007F6D35 /* HJStatusRetweetedViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJStatusRetweetedViewFrame.h; sourceTree = "<group>"; };
+		25450C701ABEF964007F6D35 /* HJStatusRetweetedViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusRetweetedViewFrame.m; sourceTree = "<group>"; };
+		25450C721ABF0411007F6D35 /* HJStatusDetailViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJStatusDetailViewFrame.h; sourceTree = "<group>"; };
+		25450C731ABF0411007F6D35 /* HJStatusDetailViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusDetailViewFrame.m; sourceTree = "<group>"; };
 		254695841AAC0AB000122053 /* AuthorizationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationController.h; sourceTree = "<group>"; };
 		254695851AAC0AB000122053 /* AuthorizationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationController.m; sourceTree = "<group>"; };
 		254695891AAC1FC000122053 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -166,6 +179,8 @@
 		25D015451AA9BC0C0049C2F2 /* UIViewController+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extention.m"; sourceTree = "<group>"; };
 		25D015471AA9CCA90049C2F2 /* MessageDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailController.h; sourceTree = "<group>"; };
 		25D015481AA9CCA90049C2F2 /* MessageDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailController.m; sourceTree = "<group>"; };
+		25FDB5A91ABFA00F007CB5D7 /* NSDate+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extention.h"; sourceTree = "<group>"; };
+		25FDB5AA1ABFA00F007CB5D7 /* NSDate+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extention.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +240,8 @@
 			children = (
 				251E332F1AB98E430028DBC3 /* NSBundle+Load.h */,
 				251E33301AB98E430028DBC3 /* NSBundle+Load.m */,
+				25FDB5A91ABFA00F007CB5D7 /* NSDate+Extention.h */,
+				25FDB5AA1ABFA00F007CB5D7 /* NSDate+Extention.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -474,6 +491,14 @@
 				251E33251AB9899F0028DBC3 /* HJUser.m */,
 				25450C661ABEA9F9007F6D35 /* HJStatusModel.h */,
 				25450C671ABEA9F9007F6D35 /* HJStatusModel.m */,
+				25450C6F1ABEF964007F6D35 /* HJStatusRetweetedViewFrame.h */,
+				25450C701ABEF964007F6D35 /* HJStatusRetweetedViewFrame.m */,
+				25450C721ABF0411007F6D35 /* HJStatusDetailViewFrame.h */,
+				25450C731ABF0411007F6D35 /* HJStatusDetailViewFrame.m */,
+				25450C691ABEBA81007F6D35 /* HJStatusOriginViewFrame.h */,
+				25450C6A1ABEBA81007F6D35 /* HJStatusOriginViewFrame.m */,
+				25450C6C1ABEC7C4007F6D35 /* HJStatusToolBarFrams.h */,
+				25450C6D1ABEC7C4007F6D35 /* HJStatusToolBarFrams.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -726,10 +751,15 @@
 				25D013C11AA9A4380049C2F2 /* AppDelegate.m in Sources */,
 				25450C591ABEA70A007F6D35 /* HJStatusDetailView.m in Sources */,
 				25D00F101AA9A3CF0049C2F2 /* main.m in Sources */,
+				25450C6E1ABEC7C4007F6D35 /* HJStatusToolBarFrams.m in Sources */,
 				254856071ABA76C7006C66F8 /* HJImageView.m in Sources */,
+				25450C741ABF0411007F6D35 /* HJStatusDetailViewFrame.m in Sources */,
 				252376F81AB55E8400455BC8 /* ComposeMessageController.m in Sources */,
 				254695A21AAC1FC000122053 /* AFURLRequestSerialization.m in Sources */,
+				25450C711ABEF964007F6D35 /* HJStatusRetweetedViewFrame.m in Sources */,
 				254695AE1AAC397300122053 /* UIView+Extention.m in Sources */,
+				25FDB5AB1ABFA00F007CB5D7 /* NSDate+Extention.m in Sources */,
+				25450C6B1ABEBA81007F6D35 /* HJStatusOriginViewFrame.m in Sources */,
 				2546959F1AAC1FC000122053 /* AFNetworkReachabilityManager.m in Sources */,
 				25D015371AA9A4380049C2F2 /* UIImage+Extendion.m in Sources */,
 				25450C5C1ABEA71E007F6D35 /* HJStatusToolBar.m in Sources */,

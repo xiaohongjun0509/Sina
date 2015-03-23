@@ -16,4 +16,12 @@
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define UID @"5307800180"
 
+#define PaddingInset 10
+
+#define NameFont [UIFont systemFontOfSize:12]
+
+#define TimeFont [UIFont systemFontOfSize:8]
+#define IntroFont [UIFont systemFontOfSize:10]
+
+#define SourceFont [UIFont systemFontOfSize:8]
 #endif

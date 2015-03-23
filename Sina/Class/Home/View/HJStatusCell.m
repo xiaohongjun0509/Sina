@@ -10,14 +10,22 @@
 
 @implementation HJStatusCell
 
-- (void)awakeFromNib {
-    // Initialization code
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle =  UITableViewCellSelectionStyleNone;
+//        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setStatusModel:(HJStatusModel *)statusModel
+{
+    self.detailView = [[HJStatusDetailView alloc] initWithModel:statusModel];
+   CGRect frame = self.contentView.frame;
+    frame.origin.y = 10;
+    self.contentView.frame = frame;
+    [self.contentView addSubview:self.detailView];
 }
 
 @end

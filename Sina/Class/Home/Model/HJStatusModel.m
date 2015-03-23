@@ -20,6 +20,14 @@
         self.user = [[HJUser alloc]initWithDict:dict[@"user"]];
         self.text = dict[@"text"];
         self.lastStatusId = dict[@"id"];
+        self.time = dict[@"created_at"];
+//        dict[@"retweeted_status"]取出来的是NSDictionary
+        if (dict[@"retweeted_status" ] != nil) {
+            self.retweeted_status = [[HJStatusModel alloc]initWithDict:dict[@"retweeted_status"]];
+        }
+        
+       
+//        NSLog(@"%@",self.retweeted_status);
     }
     return self;
 }

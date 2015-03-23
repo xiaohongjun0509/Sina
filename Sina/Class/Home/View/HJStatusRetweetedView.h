@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HJStatusModel.h"
+#import "HJStatusRetweetedViewFrame.h"
 @interface HJStatusRetweetedView : UIView
+@property (nonatomic,strong) HJStatusRetweetedViewFrame *viewFrame;
+-(instancetype)initWithModel:(HJStatusModel *)model;
 
 @end

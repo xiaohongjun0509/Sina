@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HJStatusDetailView.h"
 @interface HJStatusCell : UITableViewCell
 
+@property (nonatomic,strong) HJStatusDetailView *detailView;
+
+
+@property (nonatomic,strong) HJStatusModel *statusModel;
+-(void)setStatusModel:(HJStatusModel *)statusModel;
 @end

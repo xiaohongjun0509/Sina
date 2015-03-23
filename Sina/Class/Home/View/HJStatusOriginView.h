@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class HJStatusOriginViewFrame;
+#import "HJStatusModel.h"
 @interface HJStatusOriginView : UIView
 
+@property (nonatomic,strong)HJStatusOriginViewFrame *frame;
+
+
+- (instancetype)initWithModel:(HJStatusModel *)model;
 @end

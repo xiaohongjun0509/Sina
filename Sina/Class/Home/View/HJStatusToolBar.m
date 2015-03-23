@@ -8,14 +8,31 @@
 
 #import "HJStatusToolBar.h"
 
+@interface HJStatusToolBar ()
+@property(nonatomic,strong)UILabel *label;
+@end
+
 @implementation HJStatusToolBar
+//-(instancetype)init
+//{
+//    if (self = [super init] ) {
+//        self.backgroundColor = [ UIColor blueColor];
+//        self.frame= [[HJStatusToolBarFrams alloc] init];
+//        HJStatusOriginViewFrame * frame = [[HJStatusOriginViewFrame alloc] initWithModel:nil];
+//        [self setFrame:CGRectMake(0, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
+//    }
+//    return  self;
+//}
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype) initWithModel :(HJStatusModel*)model;
+{
+    if (self = [super init] ) {
+        self.backgroundColor = [ UIColor blueColor];
+        HJStatusToolBarFrams *frame = [[HJStatusToolBarFrams alloc] initWithModel:model];
+        [self setFrame:frame.toolBarFrame];
+        
+        
+    }
+    return  self;
 }
-*/
-
 @end
