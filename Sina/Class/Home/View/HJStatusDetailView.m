@@ -2,7 +2,7 @@
 //  HJStatusDetailView.m
 //  Sina
 //
-//  Created by xhj on 15-3-22.
+//  Created by xhj on 15-3-23.
 //  Copyright (c) 2015年 xhj. All rights reserved.
 //
 
@@ -10,30 +10,31 @@
 
 @implementation HJStatusDetailView
 
+-(instancetype)init
+{
+    if (self =[super init]) {
+        HJOriginView *originView = [[HJOriginView alloc] init];
+        [self addSubview:originView];
+        self.originView = originView;
+        HJRetweenedView *retView  = [[HJRetweenedView alloc] init];
+        [self addSubview:retView];
+        self.retView  = retView ;
 
-
--(instancetype)initWithModel:(HJStatusModel *)model{
-    if (self = [super init]) {
-        
-        self.originView = [[HJStatusOriginView alloc] initWithModel:model];
-        [self addSubview:self.originView];
-        self.toolbar = [[HJStatusToolBar alloc]initWithModel:model];
-        [self addSubview:self.toolbar];
-        //判断是否有转发的数据
-        if (model.retweeted_status != nil) {
-            self.retweetedView = [[HJStatusRetweetedView alloc] initWithModel:model.retweeted_status];
-            HJStatusDetailViewFrame *frame = [[HJStatusDetailViewFrame alloc] initWithModel:model];
-            
-            [self addSubview:self.retweetedView];
-            [self.retweetedView setFrame:frame.rewteenedFrame];
-        }
-        
-        
-//        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
 
 
+-(void)setDetailFrame:(HJStatusDetailFrame *)detailFrame
+{
+    //这里也报错。
+    if (detailFrame.retFrame != nil) {
+        self.retView.retFrame = detailFrame.retFrame;
+    }else{
+        self.retView.retFrame = nil;
+    }
+    self.originView.originFrame = detailFrame.originFrame;
+    self.frame = detailFrame.frame;
+}
 
 @end

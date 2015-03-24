@@ -16,9 +16,8 @@
 #import "HJHttpTool.h"
 #import "UnreadModal.h"
 #import "HJStatusModel.h"
+#import "HJStatusFrame.h"
 #import "HJStatusCell.h"
-#import "HJStatusDetailViewFrame.h"
-//#import "HJ"
 static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_timeline.json";
 
 @interface HomeController ()
@@ -26,10 +25,11 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong) TitleButton *titleButton ;
 @property(assign)BOOL isClicked;
-@property (nonatomic,strong)NSMutableArray *status;
+@property (nonatomic,strong)NSMutableArray *statusFrame;
 @property (nonatomic,strong) UIRefreshControl  *refresh;
 @property (nonatomic,strong) HJLoadMore *loadMore;
 @property (nonatomic,assign) BOOL isFooterShowing;
+//@property (nonatomic,strong) NSMutableArray *name;
 @end
 
 @implementation HomeController
@@ -44,7 +44,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 //    [self loadDataFromServer];
     [self setFooterView];
     
-    
+    [self.tableView registerClass:[HJStatusCell class] forCellReuseIdentifier:@"cell"];
 }
 
 
@@ -76,27 +76,26 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
        [self loadDataFromServer];
     
 }
-
+//从服务器加载数据
 - (void)loadDataFromServer
 {
     AFHTTPRequestOperationManager *arom = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObject:ACCESSTOKEN forKey:@"access_token"];
-    if (self.status.count) {
-        HJStatusModel *modal = [self.status firstObject];
+    if (self.statusFrame.count) {
+        HJStatusFrame *modalFrame = [self.statusFrame firstObject];
         //用since——id来标记微博消息的顺序，但是，从服务器返回的消息中用id来标记的。
-        dict[@"since_id"] = modal.lastStatusId;
+        dict[@"since_id"] = modalFrame.model.lastStatusId;
     }
     [arom GET:GetParams parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-//        NSArray *newStatusArray = responseObject[@"statuses"];
-       NSArray *newStatusArray = [self parseArrayToModal:responseObject[@"statuses"]];
+       NSArray *newStatusFrame = [self statusFromModelArray:responseObject[@"statuses"]];
         //将更新的数据加到最前面
-        NSRange range = NSMakeRange(0, newStatusArray.count);
+        NSRange range = NSMakeRange(0, newStatusFrame.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.status insertObjects:newStatusArray atIndexes:indexSet];
+        [self.statusFrame insertObjects:newStatusFrame atIndexes:indexSet];
         [self.tableView reloadData];
         [self.refresh endRefreshing];
-        [self sendNewStatues:newStatusArray.count];
+        [self sendNewStatues:newStatusFrame.count];
         //在合适的地方添加上自动刷新的功能。。。。这里现在不做处理
 //        self.tableView.tableFooterView  = [[HJLoadMore alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 44)];
         //数据加载完之后，发送提示。
@@ -111,16 +110,16 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 
 
 
--(NSMutableArray *)status
+-(NSMutableArray *)statusFrame
 {
-    if(_status == nil)
+    if(_statusFrame == nil)
     {
-        _status = [NSMutableArray array];
+        _statusFrame = [NSMutableArray array];
     }
-    return  _status;
+    return  _statusFrame;
 }
 
-
+//加载最新的数据
 - (void)sendNewStatues:(NSUInteger)count
 {
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 34, self.view.frame.size.width, 30)];
@@ -148,12 +147,17 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 }
 
 
-- (NSArray *)parseArrayToModal:(NSArray *)rawArray
+- (NSArray *)statusFromModelArray:(NSArray *)rawArray
 {
     NSMutableArray *mArray = [NSMutableArray array];
     for (id dict in rawArray) {
-        HJStatusModel *modal = [[HJStatusModel alloc] initWithDict:dict];
-        [mArray addObject:modal];
+        HJStatusModel *model = [[HJStatusModel alloc] initWithDict:dict];
+
+        HJStatusFrame *frame = [[HJStatusFrame alloc] initWithDict:model];
+
+        [mArray addObject:frame];
+        
+        
     }
     
     return mArray;
@@ -162,7 +166,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 -(void) loadViewController
 {
     
-    self.status = [NSMutableArray array];
+    self.statusFrame = [NSMutableArray array];
     UIButton *leftButton = [[UIButton alloc] init];
     [leftButton addTarget:self action:@selector(leftButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -187,6 +191,9 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     self.isFooterShowing = NO;
+    
+    
+    
 
 }
 
@@ -222,38 +229,47 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    self.tableView.tableFooterView.hidden = self.status.count == 0 ? YES:NO;
-    return self.status.count;
+    self.tableView.tableFooterView.hidden = self.statusFrame.count == 0 ? YES:NO;
+    return self.statusFrame.count;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-//    }
-//    
-    HJStatusModel *modal = [self.status objectAtIndex:indexPath.row];
-//    cell.textLabel.text =  modal.text;
-//    //在主线程进行网络操作会阻塞当前的线程。所以要放在子线程里面。
-////    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:modal.imageUrl ]];
-////    cell.imageView.image = [UIImage imageWithData:data];
+    HJStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell == nil) {
+        cell =[[HJStatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];;
+    }
+    //frame 的detailFrame类型不对。
     
-    HJStatusCell *cell = [[HJStatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    [cell setStatusModel:modal];
     
+    
+    HJStatusFrame *frame = [self.statusFrame objectAtIndex:indexPath.row];
+//    CGRect cellFrame =cell.frame;
+//    cellFrame.origin.y +=10;
+//    cell.frame = cellFrame;
+    [cell setStatusFrame:frame];
     return cell;
+}
+
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 10;
+//}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    HJStatusCell *myCell  = (HJStatusCell *)cell;
+////    [myCell setStatusModel:nil];
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     HJStatusModel *model = [self.status objectAtIndex:indexPath.row];
 
-    HJStatusDetailViewFrame *frame  = [[HJStatusDetailViewFrame alloc] initWithModel:model];
-//    return frame.ViewHeight + 45;
-    return frame.detailViewHeight +  35 + 10;
+   HJStatusFrame *frame = [self.statusFrame objectAtIndex:indexPath.row];
+    return frame.cellHeight ;
 }
 
 
@@ -266,7 +282,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (self.status.count <= 0 || self.loadMore.refreshing) return ;
+    if (self.statusFrame.count <= 0 || self.loadMore.refreshing) return ;
     CGFloat delta = scrollView.contentSize.height - scrollView.contentOffset.y;
     
     CGFloat sawFooterH = self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height;
@@ -288,15 +304,13 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 {
     NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    HJStatusModel *model = [self.status lastObject];
+    HJStatusFrame *modelFrame = [self.statusFrame lastObject];
     [dict setValue:ACCESSTOKEN forKey:@"access_token"];
-    [dict setValue:model.lastStatusId forKey:@"max_id"];
+    [dict setValue:modelFrame.model.lastStatusId forKey:@"max_id"];
     [HJHttpTool get:url params:dict success:^(id  result) {
-        NSArray *newStatusArray = [self parseArrayToModal:result[@"statuses"]];
-//        NSLog(@"new %d",self.status.count);
-        [self.status addObjectsFromArray:newStatusArray];
+        NSArray *newStatusArray = [self statusFromModelArray:result[@"statuses"]];
+        [self.statusFrame addObjectsFromArray:newStatusArray];
         [self.tableView reloadData];
-//        NSLog(@"old %d",self.status.count);
         [self.loadMore endRefreshing];
         
     } fail:^(NSError *error) {
