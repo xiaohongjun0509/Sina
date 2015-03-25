@@ -10,6 +10,7 @@
 
 #import "HJTextView.h"
 #import "AFNetworking.h"
+#import "HJHttpTool.h"
 static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
 @interface ComposeMessageController ()
 @property(nonatomic,strong)HJTextView *textView;
@@ -91,25 +92,44 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
     }else
     {
         AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-        NSMutableArray *params =[NSMutableArray array];
+        NSMutableDictionary *params =[NSMutableDictionary dictionary];
+        NSString *content = self.textView.text;
         [params setValue:ACCESSTOKEN forKey:@"access_token"];
-        NSString *content = [self.textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
         [params setValue:content forKey:@"status"];
-
-        [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"%@",responseObject);
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"%@",error);
-        }];
+        [HJHttpTool post:@"https://api.weibo.com/2/statuses/update.json" params:params success:nil];
+        [self dismissViewControllerAnimated:self completion:nil];
+        //         NSString *content = [self.textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            NSLog(@"%@",responseObject);
+//            
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            NSLog(@"%@",error);
+//        }];
         
-        
-        
+//        NSURL * url = [NSURL URLWithString:@"https://api.weibo.com/2/statuses/update.json"];
+//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+//        request.HTTPMethod = @"POST";
+//        NSString *con  = @"access_token=2.001SzMnFuMVFSE8af71ec565zuLtzC&status=这是一个测试方法";
+//        NSData *data = [con dataUsingEncoding:NSUTF8StringEncoding];
+//        request.HTTPBody = data;
+//        NSString *length = [NSString stringWithFormat:@"%lu",(unsigned long)data.length];
+//        [request setValue:length forHTTPHeaderField:@"Content-Length"];
+//        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//        NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
+//        //发送请求的方法1.
+////        [conn start];
+//        //通过队列来发送数据请求
+//        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//            NSLog(@"response :%@",response);
+//        }];
         
         
     }
 }
+
+
+
 
 
 -(void)back

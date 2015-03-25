@@ -11,6 +11,10 @@
 @implementation HJImageCache
 
 
+//NSNumber
+
+
+
 
 +(instancetype)standardCache
 {
@@ -70,7 +74,7 @@
 }
 
 
--(NSMutableData *)dataForKey :(NSString *)key
+-(NSData *)dataForKey :(NSString *)key
 {
     NSData *data = nil;
     NSFileManager *manager = [NSFileManager defaultManager];

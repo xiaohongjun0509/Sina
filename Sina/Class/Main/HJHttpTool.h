@@ -15,5 +15,5 @@
 
 + (void)get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id result))success fail:(void (^)(NSError * error))fail;
 + (void)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id result))success fail:(void (^)(NSError * error))fail;
-
++(void)post:(NSString *)urlStr params:(NSDictionary *)params success:(void (^)(NSURLResponse *response, NSData *data, NSError *error))handler;
 @end

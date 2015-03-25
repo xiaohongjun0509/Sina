@@ -31,7 +31,7 @@
         
         self.head = [[HJRemoteImageView alloc] init];
         self.head.contentMode = UIViewContentModeScaleAspectFill;
-        self.head.imageView.image = [UIImage imageNamed:@"avatar_default"];
+        
         
         [self addSubview:self.head];
         self.backgroundColor = [UIColor whiteColor];
@@ -46,6 +46,7 @@
     self.name.text = model.user.name;
     self.time.text = model.time;
     self.intro.text = model.text;
+    self.head.imageView.image = [UIImage imageNamed:@"avatar_default"];
     self.head.urlString = model.user.imageUrl;
     [self.name setFrame:originFrame.nameFrame];
     [self.time setFrame:originFrame.timeFrame];

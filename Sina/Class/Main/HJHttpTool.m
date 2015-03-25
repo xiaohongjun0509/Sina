@@ -41,4 +41,40 @@
     }];
 
 }
+
++(void)post:(NSString *)urlStr params:(NSDictionary *)params success:(void (^)(NSURLResponse *response, NSData *data, NSError *error))handler
+{
+    if (params !=nil) {
+        NSURL *url = [NSURL URLWithString:urlStr];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+        request.HTTPMethod = @"POST";
+        NSMutableString *content =[[NSMutableString alloc] init];
+        for (NSString *key in params.allKeys) {
+            [content appendString:[NSString stringWithFormat:@"%@=%@",key,params[key]]];
+            if (![key isEqualToString:[params.allKeys lastObject]]) {
+                [content appendString:@"&"];
+            }
+            
+        }
+        NSLog(@"content %@",content);
+        NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
+        request.HTTPBody = data;
+        [request setValue:[NSString stringWithFormat:@"%lu",(unsigned long)data.length] forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            if (handler) {
+                handler(response,data,error);
+            }
+            
+        }];
+    }
+   
+    
+    
+}
+
+
+
+
 @end

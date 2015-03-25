@@ -240,14 +240,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
     if (cell == nil) {
         cell =[[HJStatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];;
     }
-    //frame 的detailFrame类型不对。
-    
-    
-    
     HJStatusFrame *frame = [self.statusFrame objectAtIndex:indexPath.row];
-//    CGRect cellFrame =cell.frame;
-//    cellFrame.origin.y +=10;
-//    cell.frame = cellFrame;
     [cell setStatusFrame:frame];
     return cell;
 }
@@ -260,8 +253,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    HJStatusCell *myCell  = (HJStatusCell *)cell;
-////    [myCell setStatusModel:nil];
+
 }
 
 

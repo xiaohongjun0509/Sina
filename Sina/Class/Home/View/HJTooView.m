@@ -13,9 +13,8 @@
 {
     if (self =[super init])
     {
-//        self.frame = CGRectMake(0, 0, SCREENWIDTH, 35);
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 35)];
-        label.backgroundColor = [UIColor blueColor];
+        label.backgroundColor = [UIColor redColor];
         [self addSubview:label];
     }
     return self;
