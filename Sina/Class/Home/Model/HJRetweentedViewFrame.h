@@ -15,5 +15,8 @@
 @property (nonatomic,assign) CGRect frame;
 @property (nonatomic,assign) CGRect nameRect;
 @property (nonatomic,assign) CGRect introRect;
-
+//图片显示frame数组
+@property (nonatomic,strong) NSMutableArray *photosFrame;
+//整个图片显示区域的frame
+@property (nonatomic,assign) CGRect photoViewFrame;
 @end

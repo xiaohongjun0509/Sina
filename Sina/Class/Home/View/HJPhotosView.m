@@ -20,6 +20,7 @@
             HJStatusPhoto *photo = [[HJStatusPhoto alloc] init];
             photo.imageView.contentMode = UIViewContentModeScaleToFill;
             [photo.imageView setFrame:CGRectMake(0, 0, 70, 70)];
+            [self addSubview:photo];
             [self.imgArray addObject:photo];
         }
         

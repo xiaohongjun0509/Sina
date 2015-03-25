@@ -7,7 +7,8 @@
 //
 
 #import "HJRetweenedView.h"
-
+#import "HJStatusPhoto.h"
+#import "HJRemoteImageView.h"
 @implementation HJRetweenedView
 
 -(instancetype)init
@@ -26,7 +27,8 @@
         self.intro.numberOfLines = 0;
         self.intro.font = IntroFont;
         [self addSubview:self.intro];
-        
+        self.photosView = [[HJPhotosView alloc] init];
+        [self addSubview:self.photosView];
     }
     return self;
 }
@@ -41,9 +43,31 @@
         self.intro.text = model.text;
         [self.name setFrame:retFrame.nameRect];
         [self.intro setFrame: retFrame.introRect];
+        [self.photosView setFrame:retFrame.photoViewFrame];
+        if(model.imgs.count)
+        {
+            for (int i = 0; i < model.imgs.count; i++) {
+               HJStatusPhoto *photo = self.photosView.imgArray[i];
+                [photo setFrame:[retFrame.photosFrame[i] CGRectValue]];
+                photo.hidden = NO;
+            }
+            for (int i = (int)model.imgs.count; i <9 ; i++) {
+                HJStatusPhoto *photo = self.photosView.imgArray[i];
+                photo.hidden = YES;
+            }
+            
+        }else{
+            for (int i = 0; i <9 ; i ++) {
+                ( (HJStatusPhoto *)(self.photosView.imgArray[i])).hidden = YES;
+            }
+        }
+        
     }
     else{
         self.frame = CGRectMake(0, 0, 0, 0);
+        for (int i = 0; i <9 ; i ++) {
+           ( (HJStatusPhoto *)(self.photosView.imgArray[i])).hidden = YES;
+        }
         HJStatusModel *model = nil;
         self.name.text = model.user.name;
         self.intro.text = model.text;
