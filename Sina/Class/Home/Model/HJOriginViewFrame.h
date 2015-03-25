@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Foundation/NSValue.h"
 #import "HJStatusModel.h"
 @interface HJOriginViewFrame : NSObject
 @property (nonatomic,strong) HJStatusModel *model;
@@ -17,4 +18,7 @@
 @property (nonatomic,assign) CGRect timeFrame;
 @property (nonatomic,assign) CGRect sourceFrame;
 @property (nonatomic,assign) CGRect introFrame;
+//用来存放图片的frames
+@property (nonatomic,strong) NSMutableArray *photosFrame;
+@property (nonatomic,assign) CGRect  photoViewFrame;
 @end

@@ -22,6 +22,6 @@
 
 #define TimeFont [UIFont systemFontOfSize:8]
 #define IntroFont [UIFont systemFontOfSize:10]
-
+#define PhotoH 70
 #define SourceFont [UIFont systemFontOfSize:8]
 #endif

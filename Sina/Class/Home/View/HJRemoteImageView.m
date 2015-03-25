@@ -13,10 +13,10 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.imageView  =[[ UIImageView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+        self.imageView  =[[ UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 //        self.imageView.backgroundColor = [UIColor redColor];
         self.placeHolder = [UIImage imageNamed:@"avatar_default"];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.imageView.contentMode = UIViewContentModeScaleToFill;
         self.imageView.image = self.placeHolder;
         [self addSubview:self.imageView];
         if (queue == nil) {
@@ -41,7 +41,7 @@
     NSData *picData = [[HJImageCache standardCache] dataForKey:_urlString];
     if (picData != nil) {
         self.imageView.image = [UIImage imageWithData:picData];
-        NSLog(@"loadfromdisk");
+//        NSLog(@"loadfromdisk");
         return ;
     }
     
@@ -67,7 +67,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"loadfronserver");
+//    NSLog(@"loadfronserver");
     UIImage *image = [[UIImage alloc] initWithData:self.data];
     [[HJImageCache standardCache] setData:self.data forKey:self.urlString];
     self.imageView.image = image;

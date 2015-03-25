@@ -25,9 +25,8 @@
         if (dict[@"retweeted_status" ] != nil) {
             self.retweeted_status = [[HJStatusModel alloc]initWithDict:dict[@"retweeted_status"]];
         }
-        
-       
-//        NSLog(@"%@",self.retweeted_status);
+        self.imgs = dict[@"pic_urls"];
+
     }
     return self;
 }

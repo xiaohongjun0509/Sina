@@ -15,4 +15,5 @@
 @property (nonatomic,assign) CGRect frame;
 @property (nonatomic,assign) CGRect nameRect;
 @property (nonatomic,assign) CGRect introRect;
+
 @end

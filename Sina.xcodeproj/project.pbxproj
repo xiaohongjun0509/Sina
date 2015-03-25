@@ -12,6 +12,8 @@
 		251E33311AB98E430028DBC3 /* NSBundle+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 251E33301AB98E430028DBC3 /* NSBundle+Load.m */; };
 		252376F11AB53C5A00455BC8 /* Tabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 252376F01AB53C5A00455BC8 /* Tabbar.m */; };
 		252376F81AB55E8400455BC8 /* ComposeMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252376F71AB55E8400455BC8 /* ComposeMessageController.m */; };
+		253D52321AC2CDD300C822F3 /* HJPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 253D52311AC2CDD300C822F3 /* HJPhotosView.m */; };
+		253D52381AC2E21500C822F3 /* HJStatusPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 253D52371AC2E21500C822F3 /* HJStatusPhoto.m */; };
 		25450C681ABEA9F9007F6D35 /* HJStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25450C671ABEA9F9007F6D35 /* HJStatusModel.m */; };
 		254695861AAC0AB000122053 /* AuthorizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254695851AAC0AB000122053 /* AuthorizationController.m */; };
 		2546959C1AAC1FC000122053 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2546958A1AAC1FC000122053 /* AFHTTPRequestOperation.m */; };
@@ -101,6 +103,10 @@
 		252376F01AB53C5A00455BC8 /* Tabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tabbar.m; sourceTree = "<group>"; };
 		252376F61AB55E8400455BC8 /* ComposeMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeMessageController.h; sourceTree = "<group>"; };
 		252376F71AB55E8400455BC8 /* ComposeMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeMessageController.m; sourceTree = "<group>"; };
+		253D52301AC2CDD300C822F3 /* HJPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJPhotosView.h; sourceTree = "<group>"; };
+		253D52311AC2CDD300C822F3 /* HJPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJPhotosView.m; sourceTree = "<group>"; };
+		253D52361AC2E21500C822F3 /* HJStatusPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJStatusPhoto.h; sourceTree = "<group>"; };
+		253D52371AC2E21500C822F3 /* HJStatusPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusPhoto.m; sourceTree = "<group>"; };
 		25450C661ABEA9F9007F6D35 /* HJStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJStatusModel.h; sourceTree = "<group>"; };
 		25450C671ABEA9F9007F6D35 /* HJStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusModel.m; sourceTree = "<group>"; };
 		254695841AAC0AB000122053 /* AuthorizationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationController.h; sourceTree = "<group>"; };
@@ -583,6 +589,10 @@
 				25FDB5E41AC05A7C007CB5D7 /* HJOriginView.m */,
 				25FDB5E61AC05B99007CB5D7 /* HJTooView.h */,
 				25FDB5E71AC05B99007CB5D7 /* HJTooView.m */,
+				253D52301AC2CDD300C822F3 /* HJPhotosView.h */,
+				253D52311AC2CDD300C822F3 /* HJPhotosView.m */,
+				253D52361AC2E21500C822F3 /* HJStatusPhoto.h */,
+				253D52371AC2E21500C822F3 /* HJStatusPhoto.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -874,6 +884,7 @@
 				254695A21AAC1FC000122053 /* AFURLRequestSerialization.m in Sources */,
 				254695AE1AAC397300122053 /* UIView+Extention.m in Sources */,
 				25FDB6131AC10151007CB5D7 /* UIImage+GIF.m in Sources */,
+				253D52321AC2CDD300C822F3 /* HJPhotosView.m in Sources */,
 				25FDB6151AC10151007CB5D7 /* UIImage+WebP.m in Sources */,
 				25FDB5E21AC05A69007CB5D7 /* HJRetweenedView.m in Sources */,
 				25FDB5AB1ABFA00F007CB5D7 /* NSDate+Extention.m in Sources */,
@@ -892,6 +903,7 @@
 				2546959E1AAC1FC000122053 /* AFHTTPSessionManager.m in Sources */,
 				25FDB6111AC10151007CB5D7 /* SDWebImagePrefetcher.m in Sources */,
 				254695A71AAC226800122053 /* TabBarController.m in Sources */,
+				253D52381AC2E21500C822F3 /* HJStatusPhoto.m in Sources */,
 				25D013BC1AA9A4380049C2F2 /* DiscoveryController.m in Sources */,
 				254695A41AAC1FC000122053 /* AFURLSessionManager.m in Sources */,
 				252376F11AB53C5A00455BC8 /* Tabbar.m in Sources */,
