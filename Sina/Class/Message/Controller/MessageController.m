@@ -40,15 +40,18 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"首页假数据%d",indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"s数据%d",(int)indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MessageDetailController *controller = [MessageDetailController alloc];
+    UIViewController *controller = [[UIViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:indexPath];
 }
 
 @end

@@ -30,7 +30,7 @@
 -(void)repeatUpdateStatus
 {
     NSTimer *timer= [NSTimer timerWithTimeInterval:2.0f target:self selector:@selector(updateStatus) userInfo:nil repeats:YES];
-    [timer fire];
+//    [timer fire];
 }
 
 -(void)updateStatus

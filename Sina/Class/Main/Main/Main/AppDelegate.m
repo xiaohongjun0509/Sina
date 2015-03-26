@@ -28,7 +28,7 @@ NSString *versionKey = @"CFBundleVersion";
     self.window.backgroundColor = [UIColor whiteColor];
     //成为主窗口
     [self.window makeKeyAndVisible];
-    NSLog(@"app window %@",self.window);
+//    NSLog(@"app window %@",self.window);
 //    [self loadAuthorizationController];
     
     

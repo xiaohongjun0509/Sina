@@ -268,7 +268,7 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HomeViewController1 *controller = [HomeViewController1 alloc];
-//    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

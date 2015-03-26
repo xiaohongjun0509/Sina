@@ -52,11 +52,16 @@
         request.HTTPMethod = @"POST";
         NSMutableString *content =[[NSMutableString alloc] init];
         for (NSString *key in params.allKeys) {
-            [content appendString:[NSString stringWithFormat:@"%@=%@",key,params[key]]];
-            if (![key isEqualToString:[params.allKeys lastObject]]) {
-                [content appendString:@"&"];
+            id obj = params[key];
+            if ([obj isKindOfClass:[NSString class]]) {
+                [content appendString:[NSString stringWithFormat:@"%@=%@",key,params[key]]];
+                if (![key isEqualToString:[params.allKeys lastObject]]) {
+                    [content appendString:@"&"];
+            }else if([obj isKindOfClass:[NSData class]])
+            {
+                
             }
-            
+            }
         }
         NSLog(@"content %@",content);
         NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
@@ -77,6 +82,18 @@
 }
 
 
++(void)post:(NSString *)urlStr params:(NSDictionary *)params  data:(NSData *)data success:(void (^)(NSURLResponse *response, NSData *data, NSError *error))handler
+{
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    [mgr POST:urlStr parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"status.jpg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"responseObject ----%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error -- %@",error);
+    }];
+    
+}
 
 
 @end

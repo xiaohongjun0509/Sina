@@ -16,6 +16,7 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
 @property(nonatomic,strong)HJTextView *textView;
 @property (nonatomic,strong) HJToolBar *toolBar;
 @property (nonatomic,strong) NSMutableArray *imgArray;
+//@property (nonatomic,strong) NSMutableArray *picArray;
 @end
 
 @implementation ComposeMessageController
@@ -89,42 +90,24 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
     NSLog(@"complete ------");
     if (self.imgArray.count) {
         //发布带图片的为微博数据
+        NSMutableDictionary *params =[NSMutableDictionary dictionary];
+        NSString *content = self.textView.text;
+        [params setValue:ACCESSTOKEN forKey:@"access_token"];
+        [params setValue:content forKey:@"status"];
+        UIImage *image  = [self.imgArray firstObject];
+        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        [HJHttpTool post:@"https://upload.api.weibo.com/2/statuses/upload.json" params:params data:data success:nil];
+        [self dismissViewControllerAnimated:self completion:nil];
+        
     }else
     {
-        AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+        
         NSMutableDictionary *params =[NSMutableDictionary dictionary];
         NSString *content = self.textView.text;
         [params setValue:ACCESSTOKEN forKey:@"access_token"];
         [params setValue:content forKey:@"status"];
         [HJHttpTool post:@"https://api.weibo.com/2/statuses/update.json" params:params success:nil];
         [self dismissViewControllerAnimated:self completion:nil];
-        //         NSString *content = [self.textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//        [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSLog(@"%@",responseObject);
-//            
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            NSLog(@"%@",error);
-//        }];
-        
-//        NSURL * url = [NSURL URLWithString:@"https://api.weibo.com/2/statuses/update.json"];
-//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-//        request.HTTPMethod = @"POST";
-//        NSString *con  = @"access_token=2.001SzMnFuMVFSE8af71ec565zuLtzC&status=这是一个测试方法";
-//        NSData *data = [con dataUsingEncoding:NSUTF8StringEncoding];
-//        request.HTTPBody = data;
-//        NSString *length = [NSString stringWithFormat:@"%lu",(unsigned long)data.length];
-//        [request setValue:length forHTTPHeaderField:@"Content-Length"];
-//        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//        NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
-//        //发送请求的方法1.
-////        [conn start];
-//        //通过队列来发送数据请求
-//        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-//        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//            NSLog(@"response :%@",response);
-//        }];
-        
-        
     }
 }
 
@@ -215,6 +198,9 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
 //    [self dismissViewController pickerAnimated:picker completion:nil];
     [self dismissViewControllerAnimated:YES completion:^{}];
     [self.textView AddImage:image];
+    
+//    NSData *data = [NSData dataWithContentsOfFile:];
+    [self.imgArray addObject:image];
 }
 
 @end

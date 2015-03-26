@@ -36,6 +36,7 @@
 		254856141ABABC86006C66F8 /* HJToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 254856131ABABC86006C66F8 /* HJToolBar.m */; };
 		255345561ABC0AC0001EF900 /* HJHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 255345551ABC0AC0001EF900 /* HJHttpTool.m */; };
 		2553455D1ABC1DA3001EF900 /* UnreadModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2553455C1ABC1DA3001EF900 /* UnreadModal.m */; };
+		257B9FEE1AC45FCD004808F8 /* ProfileHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B9FED1AC45FCD004808F8 /* ProfileHeader.m */; };
 		25D00F101AA9A3CF0049C2F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D00F0F1AA9A3CF0049C2F2 /* main.m */; };
 		25D00F1B1AA9A3CF0049C2F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D00F1A1AA9A3CF0049C2F2 /* Images.xcassets */; };
 		25D00F1E1AA9A3CF0049C2F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25D00F1C1AA9A3CF0049C2F2 /* LaunchScreen.xib */; };
@@ -53,6 +54,9 @@
 		25D015461AA9BC0C0049C2F2 /* UIViewController+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D015451AA9BC0C0049C2F2 /* UIViewController+Extention.m */; };
 		25D015491AA9CCA90049C2F2 /* MessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D015481AA9CCA90049C2F2 /* MessageDetailController.m */; };
 		25EA006B1AC4040500CCFE5F /* HJAvatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EA006A1AC4040500CCFE5F /* HJAvatorView.m */; };
+		25EA00741AC4482800CCFE5F /* ProfileCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EA00721AC4482800CCFE5F /* ProfileCommonCell.m */; };
+		25EA00751AC4482800CCFE5F /* ProfileCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25EA00731AC4482800CCFE5F /* ProfileCommonCell.xib */; };
+		25EA00781AC44BDF00CCFE5F /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EA00771AC44BDF00CCFE5F /* CellModel.m */; };
 		25FDB5AB1ABFA00F007CB5D7 /* NSDate+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FDB5AA1ABFA00F007CB5D7 /* NSDate+Extention.m */; };
 		25FDB5AF1ABFA44B007CB5D7 /* HJRemoteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FDB5AE1ABFA44B007CB5D7 /* HJRemoteImageView.m */; };
 		25FDB5B21ABFB912007CB5D7 /* HJImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FDB5B11ABFB912007CB5D7 /* HJImageCache.m */; };
@@ -140,6 +144,8 @@
 		255345551ABC0AC0001EF900 /* HJHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpTool.m; sourceTree = "<group>"; };
 		2553455B1ABC1DA3001EF900 /* UnreadModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnreadModal.h; sourceTree = "<group>"; };
 		2553455C1ABC1DA3001EF900 /* UnreadModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnreadModal.m; sourceTree = "<group>"; };
+		257B9FEC1AC45FCD004808F8 /* ProfileHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHeader.h; sourceTree = "<group>"; };
+		257B9FED1AC45FCD004808F8 /* ProfileHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHeader.m; sourceTree = "<group>"; };
 		25D00F0A1AA9A3CF0049C2F2 /* Sina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D00F0E1AA9A3CF0049C2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25D00F0F1AA9A3CF0049C2F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -176,6 +182,11 @@
 		25EA00671AC3FBEB00CCFE5F /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = Sina/Class/Main/View/Reveal.framework; sourceTree = "<group>"; };
 		25EA00691AC4040500CCFE5F /* HJAvatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJAvatorView.h; sourceTree = "<group>"; };
 		25EA006A1AC4040500CCFE5F /* HJAvatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJAvatorView.m; sourceTree = "<group>"; };
+		25EA00711AC4482800CCFE5F /* ProfileCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCommonCell.h; sourceTree = "<group>"; };
+		25EA00721AC4482800CCFE5F /* ProfileCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCommonCell.m; sourceTree = "<group>"; };
+		25EA00731AC4482800CCFE5F /* ProfileCommonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCommonCell.xib; sourceTree = "<group>"; };
+		25EA00761AC44BDF00CCFE5F /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		25EA00771AC44BDF00CCFE5F /* CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
 		25FDB5A91ABFA00F007CB5D7 /* NSDate+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extention.h"; sourceTree = "<group>"; };
 		25FDB5AA1ABFA00F007CB5D7 /* NSDate+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extention.m"; sourceTree = "<group>"; };
 		25FDB5AD1ABFA44B007CB5D7 /* HJRemoteImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJRemoteImageView.h; sourceTree = "<group>"; };
@@ -624,6 +635,8 @@
 		25D013B41AA9A4380049C2F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25EA00761AC44BDF00CCFE5F /* CellModel.h */,
+				25EA00771AC44BDF00CCFE5F /* CellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -631,6 +644,11 @@
 		25D013B51AA9A4380049C2F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				25EA00711AC4482800CCFE5F /* ProfileCommonCell.h */,
+				25EA00721AC4482800CCFE5F /* ProfileCommonCell.m */,
+				25EA00731AC4482800CCFE5F /* ProfileCommonCell.xib */,
+				257B9FEC1AC45FCD004808F8 /* ProfileHeader.h */,
+				257B9FED1AC45FCD004808F8 /* ProfileHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -770,6 +788,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25EA00751AC4482800CCFE5F /* ProfileCommonCell.xib in Resources */,
 				25D00F1E1AA9A3CF0049C2F2 /* LaunchScreen.xib in Resources */,
 				25D00F1B1AA9A3CF0049C2F2 /* Images.xcassets in Resources */,
 			);
@@ -834,6 +853,7 @@
 				25FDB5DF1AC05A48007CB5D7 /* HJStatusDetailView.m in Sources */,
 				254856111ABAAECE006C66F8 /* HJPhotoView.m in Sources */,
 				25D0153A1AA9A4380049C2F2 /* MessageController.m in Sources */,
+				25EA00781AC44BDF00CCFE5F /* CellModel.m in Sources */,
 				254856141ABABC86006C66F8 /* HJToolBar.m in Sources */,
 				254695A31AAC1FC000122053 /* AFURLResponseSerialization.m in Sources */,
 				254695A11AAC1FC000122053 /* AFURLConnectionOperation.m in Sources */,
@@ -865,6 +885,7 @@
 				254695B11AAC415000122053 /* TitleButton.m in Sources */,
 				25D015491AA9CCA90049C2F2 /* MessageDetailController.m in Sources */,
 				251E33261AB9899F0028DBC3 /* HJUser.m in Sources */,
+				25EA00741AC4482800CCFE5F /* ProfileCommonCell.m in Sources */,
 				25D015461AA9BC0C0049C2F2 /* UIViewController+Extention.m in Sources */,
 				2546959C1AAC1FC000122053 /* AFHTTPRequestOperation.m in Sources */,
 				25FDB5B21ABFB912007CB5D7 /* HJImageCache.m in Sources */,
@@ -877,6 +898,7 @@
 				25D013BC1AA9A4380049C2F2 /* DiscoveryController.m in Sources */,
 				254695A41AAC1FC000122053 /* AFURLSessionManager.m in Sources */,
 				252376F11AB53C5A00455BC8 /* Tabbar.m in Sources */,
+				257B9FEE1AC45FCD004808F8 /* ProfileHeader.m in Sources */,
 				255345561ABC0AC0001EF900 /* HJHttpTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
