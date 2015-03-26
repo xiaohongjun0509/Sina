@@ -7,9 +7,8 @@
 //
 
 #import "HJPhotosView.h"
-
 #import "HJStatusPhoto.h"
-
+#import "UIImageView+WebCache.h"
 @implementation HJPhotosView
 
 -(instancetype)init
@@ -17,9 +16,11 @@
     if (self =[super init]) {
         self.imgArray = [[NSMutableArray alloc] init];
         for (int i =0; i < 9; i++) {
-            HJStatusPhoto *photo = [[HJStatusPhoto alloc] init];
-            photo.imageView.contentMode = UIViewContentModeScaleToFill;
-            [photo.imageView setFrame:CGRectMake(0, 0, 70, 70)];
+//            HJRemoteImageView *photo = [[HJRemoteImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
+            UIImageView *photo = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
+            photo.contentMode = UIViewContentModeScaleToFill;
+//            [photo setFrame:CGRectMake(0, 0, 70, 70)];
+            photo.backgroundColor = [UIColor blackColor];
             [self addSubview:photo];
             [self.imgArray addObject:photo];
         }
@@ -33,24 +34,21 @@
 -(void)setPicFrame:(NSMutableArray *)frameArray model:(HJStatusModel *)model
 {
     //不停的set方法，不停的addSubView，最后越加越多。
-    for (int i = 0; i < frameArray.count; i++) {
-        HJStatusPhoto *photo = self.imgArray[i];
-        
-        photo.hidden = NO;
-        NSDictionary *picDict = model.imgs[i];
-//        NSLog(@"%@",picpath);
-//        photo.backgroundColor = [UIColor blackColor];
-//        [photo setImageWithURL:picDict[@"thumbnail_pic"] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
-        [photo.imageView setUrlString:picDict[@"thumbnail_pic"]];
-        [photo setFrame:[frameArray[i] CGRectValue]];
-        [self addSubview:photo];
-        
+    if (model.imgs.count) {
+        for (int i = 0; i < frameArray.count; i++) {
+            UIImageView *photo = self.imgArray[i];
+            photo.hidden = NO;
+            NSDictionary *picDict = model.imgs[i];
+            [photo setImageWithURL:[NSURL URLWithString:picDict[@"thumbnail_pic"]] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
+            [photo setFrame:[frameArray[i] CGRectValue]];
+            [self addSubview:photo];
+            
+        }
+        for (int i = (int)frameArray.count; i <9; i++) {
+            UIImageView *photo = self.imgArray[i];
+            photo.hidden = YES;
+        }
     }
-    for (int i = (int)frameArray.count; i <9; i++) {
-        HJStatusPhoto *photo = self.imgArray[i];
-        photo.hidden = YES;
-    }
-    
 }
 
 @end

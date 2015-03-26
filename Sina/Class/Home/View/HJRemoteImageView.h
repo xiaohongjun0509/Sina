@@ -17,4 +17,5 @@
 @property(nonatomic,strong) NSMutableData *data;
 @property (nonatomic,strong)UIImage *placeHolder;
 @property (nonatomic,strong) NSString *urlString;
+//-(void)SetImagePath:(NSString *)path;
 @end

@@ -9,6 +9,7 @@
 #import "HJRetweenedView.h"
 #import "HJStatusPhoto.h"
 #import "HJRemoteImageView.h"
+#import "UIImageView+WebCache.h"
 @implementation HJRetweenedView
 
 -(instancetype)init
@@ -47,7 +48,11 @@
         if(model.imgs.count)
         {
             for (int i = 0; i < model.imgs.count; i++) {
-               HJStatusPhoto *photo = self.photosView.imgArray[i];
+               UIImageView *photo = self.photosView.imgArray[i];
+                NSString *path = (model.imgs[i])[@"thumbnail_pic"];
+
+                [photo setImageWithURL:[NSURL URLWithString:path] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
+;
                 [photo setFrame:[retFrame.photosFrame[i] CGRectValue]];
                 photo.hidden = NO;
             }

@@ -8,7 +8,6 @@
 
 #import "HJOriginView.h"
 #import "UIImageView+WebCache.h"
-
 @implementation HJOriginView
 -(instancetype)init
 {
@@ -29,7 +28,7 @@
         [self addSubview:self.intro];
         
         
-        self.head = [[HJRemoteImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        self.head = [[HJAvatorView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         self.head.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:self.head];
        //添加图片显示
@@ -48,8 +47,8 @@
     self.name.text = model.user.name;
     self.time.text = model.time;
     self.intro.text = model.text;
-    self.head.imageView.image = [UIImage imageNamed:@"avatar_default"];
-    self.head.urlString = model.user.imageUrl;
+    [self.head setImageWithURL:[NSURL URLWithString:model.user.imageUrl] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]] ;
+    
     [self.name setFrame:originFrame.nameFrame];
     [self.time setFrame:originFrame.timeFrame];
     [self.intro setFrame:originFrame.introFrame];
@@ -57,7 +56,16 @@
 //    [self.head.imageView setFrame:originFrame.headFrame];
     //设置照片现实模块的frame
     if (model.imgs.count) {
-        
+//        for (int i = 0; i< model.imgs.count; i++) {
+//            [self.photosView setPicFrame:originFrame.photosFrame model:model];
+//            [self.photosView setFrame:originFrame.photoViewFrame];
+//            self.photosView.hidden = NO;
+//        }
+//        for (int i = (int)model.imgs.count; i< 9; i++) {
+//            [self.photosView setPicFrame:originFrame.photosFrame model:model];
+//            [self.photosView setFrame:originFrame.photoViewFrame];
+//            self.photosView.hidden = YES;
+//        }
         [self.photosView setPicFrame:originFrame.photosFrame model:model];
         [self.photosView setFrame:originFrame.photoViewFrame];
         self.photosView.hidden = NO;

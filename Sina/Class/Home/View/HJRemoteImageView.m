@@ -8,6 +8,7 @@
 
 #import "HJRemoteImageView.h"
 #import "HJImageCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @implementation HJRemoteImageView
 
 -(instancetype)initWithFrame:(CGRect)frame
@@ -45,10 +46,17 @@
         return ;
     }
     
-    
+    //UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+  //  [iv setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"app"]];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    //这是一种写法
+//    __weak typeof(self) weakSelf = self;
+//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//       weakSelf.imageView.image = [[UIImage alloc] initWithData:self.data];
+//    }];
     [conn scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
@@ -67,14 +75,19 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-//    NSLog(@"loadfronserver");
+    NSLog(@"loadfronserver");
     UIImage *image = [[UIImage alloc] initWithData:self.data];
     [[HJImageCache standardCache] setData:self.data forKey:self.urlString];
     self.imageView.image = image;
 }
 
 
-
+-(void)SetImagePath:(NSString *)path{
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        [self downLoadPic:path];
+    });
+}
 
 
 
