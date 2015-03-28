@@ -8,6 +8,14 @@
 
 #import "HJOriginView.h"
 #import "UIImageView+WebCache.h"
+#import "TabBarController.h"
+#import "ProfileController.h"
+#import "HomeController.h"
+
+@interface HJOriginView()
+@property (nonatomic,strong)HJStatusModel *model;
+@property (nonatomic,copy)void (^profileHandler)(void);
+@end
 @implementation HJOriginView
 -(instancetype)init
 {
@@ -43,11 +51,11 @@
 
 -(void)setOriginFrame:(HJOriginViewFrame *)originFrame
 {
-    HJStatusModel *model = originFrame.model;
-    self.name.text = model.user.name;
-    self.time.text = model.time;
-    self.intro.text = model.text;
-    [self.head setImageWithURL:[NSURL URLWithString:model.user.imageUrl] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]] ;
+    _model = originFrame.model;
+    self.name.text = _model.user.name;
+    self.time.text = _model.time;
+    self.intro.text = _model.text;
+    [self.head setImageWithURL:[NSURL URLWithString:_model.user.imageUrl] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]] ;
     
     [self.name setFrame:originFrame.nameFrame];
     [self.time setFrame:originFrame.timeFrame];
@@ -55,30 +63,33 @@
     [self.head setFrame:originFrame.headFrame];
 //    [self.head.imageView setFrame:originFrame.headFrame];
     //设置照片现实模块的frame
-    if (model.imgs.count) {
-//        for (int i = 0; i< model.imgs.count; i++) {
-//            [self.photosView setPicFrame:originFrame.photosFrame model:model];
-//            [self.photosView setFrame:originFrame.photoViewFrame];
-//            self.photosView.hidden = NO;
-//        }
-//        for (int i = (int)model.imgs.count; i< 9; i++) {
-//            [self.photosView setPicFrame:originFrame.photosFrame model:model];
-//            [self.photosView setFrame:originFrame.photoViewFrame];
-//            self.photosView.hidden = YES;
-//        }
-        [self.photosView setPicFrame:originFrame.photosFrame model:model];
+    if (_model.imgs.count) {
+        [self.photosView setPicFrame:originFrame.photosFrame model:_model];
         [self.photosView setFrame:originFrame.photoViewFrame];
         self.photosView.hidden = NO;
     }else{
         self.photosView.hidden = YES;
-        [self.photosView setPicFrame:originFrame.photosFrame model:model];
+        [self.photosView setPicFrame:originFrame.photosFrame model:_model];
         [self.photosView setFrame:originFrame.photoViewFrame];
-
-        
-//        self.photosView = nil;
     }
     self.frame = originFrame.frame;
-    
+    self.head.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPersonalProfileBadDesign)];
+    [self.head addGestureRecognizer:tap];
+//    self.profileHandler = 
+}
+
+
+
+#pragma  mark 不符合设计。后期改进
+- (void)gotoPersonalProfileBadDesign
+{
+    NSLog(@"gotoPersonalProfile");
+    ProfileController *controller  = [[ProfileController alloc] initWithModel:self.model];
+    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:controller];
+    TabBarController  *vc = (TabBarController *)self.window.rootViewController;
+    HomeController *home = vc.selectedViewController;
+    [home presentViewController:nv animated:YES completion:nil];
 }
 
 

@@ -13,7 +13,7 @@
 @property(nonatomic,copy) NSString *desc;
 
 @property(nonatomic,copy) NSString *imageUrl;
-
+@property (nonatomic,copy)NSString *profileImg;
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 @end

@@ -32,7 +32,7 @@
     
 
     CGSize introSize  = [model.text sizeWithFont:IntroFont
-                                  constrainedToSize:CGSizeMake(300, MAXFLOAT)];
+                                  constrainedToSize:CGSizeMake(SCREENWIDTH - 2*PaddingInset, MAXFLOAT)];
     self.introFrame = CGRectMake(PaddingInset, CGRectGetMaxY(self.headFrame) +  PaddingInset, introSize.width, introSize.height);
     CGFloat h = CGRectGetMaxY(self.introFrame);
 #pragma clang diagnostic pop

@@ -17,6 +17,7 @@
         self.name = dict[@"name"];
         self.imageUrl = dict[@"avatar_large"];
         self.desc  = dict[@"description"];
+        self.profileImg = dict[@"profile_image_url"];
        
     }
     return self;

@@ -53,6 +53,8 @@
 		25D015431AA9BB9C0049C2F2 /* HomeViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D015421AA9BB9C0049C2F2 /* HomeViewController1.m */; };
 		25D015461AA9BC0C0049C2F2 /* UIViewController+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D015451AA9BC0C0049C2F2 /* UIViewController+Extention.m */; };
 		25D015491AA9CCA90049C2F2 /* MessageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D015481AA9CCA90049C2F2 /* MessageDetailController.m */; };
+		25DCF0901AC5538000C2A20C /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DCF08E1AC5538000C2A20C /* ProfileController.m */; };
+		25DCF0941AC5930000C2A20C /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DCF0931AC5930000C2A20C /* HeaderView.m */; };
 		25EA006B1AC4040500CCFE5F /* HJAvatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EA006A1AC4040500CCFE5F /* HJAvatorView.m */; };
 		25EA00741AC4482800CCFE5F /* ProfileCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EA00721AC4482800CCFE5F /* ProfileCommonCell.m */; };
 		25EA00751AC4482800CCFE5F /* ProfileCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25EA00731AC4482800CCFE5F /* ProfileCommonCell.xib */; };
@@ -84,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BC84E25086805D1A49DA64B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		251280FF1AB5767A00135517 /* NewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureController.h; sourceTree = "<group>"; };
 		251281001AB5767A00135517 /* NewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureController.m; sourceTree = "<group>"; };
 		251E33241AB9899F0028DBC3 /* HJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HJUser.h; path = ../View/HJUser.h; sourceTree = "<group>"; };
@@ -178,6 +181,11 @@
 		25D015451AA9BC0C0049C2F2 /* UIViewController+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extention.m"; sourceTree = "<group>"; };
 		25D015471AA9CCA90049C2F2 /* MessageDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailController.h; sourceTree = "<group>"; };
 		25D015481AA9CCA90049C2F2 /* MessageDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailController.m; sourceTree = "<group>"; };
+		25DCF0871AC533FF00C2A20C /* Reveal1.5_cracked.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Reveal1.5_cracked.app; path = ../../../Downloads/Reveal1.5_cracked.app; sourceTree = "<group>"; };
+		25DCF08D1AC5538000C2A20C /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
+		25DCF08E1AC5538000C2A20C /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
+		25DCF0921AC5930000C2A20C /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		25DCF0931AC5930000C2A20C /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		25EA00331AC3B9C300CCFE5F /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = Class/Home/View/Reveal.framework; sourceTree = "<group>"; };
 		25EA00671AC3FBEB00CCFE5F /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = Sina/Class/Main/View/Reveal.framework; sourceTree = "<group>"; };
 		25EA00691AC4040500CCFE5F /* HJAvatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJAvatorView.h; sourceTree = "<group>"; };
@@ -193,7 +201,6 @@
 		25FDB5AE1ABFA44B007CB5D7 /* HJRemoteImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJRemoteImageView.m; sourceTree = "<group>"; };
 		25FDB5B01ABFB912007CB5D7 /* HJImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJImageCache.h; sourceTree = "<group>"; };
 		25FDB5B11ABFB912007CB5D7 /* HJImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJImageCache.m; sourceTree = "<group>"; };
-		25FDB5B31AC00D48007CB5D7 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		25FDB5CB1AC03819007CB5D7 /* HJStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJStatusFrame.h; sourceTree = "<group>"; };
 		25FDB5CC1AC03819007CB5D7 /* HJStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJStatusFrame.m; sourceTree = "<group>"; };
 		25FDB5CE1AC03844007CB5D7 /* HJOriginViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJOriginViewFrame.h; sourceTree = "<group>"; };
@@ -214,9 +221,8 @@
 		25FDB5E41AC05A7C007CB5D7 /* HJOriginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJOriginView.m; sourceTree = "<group>"; };
 		25FDB5E61AC05B99007CB5D7 /* HJTooView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTooView.h; sourceTree = "<group>"; };
 		25FDB5E71AC05B99007CB5D7 /* HJTooView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTooView.m; sourceTree = "<group>"; };
-		64028C594BE2706D0451882F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3DC1AF9EAFAE3198D06361AE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC2847FDCB89C059E7EE6FBF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9F31C5CC63E47F66728940C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,7 +407,7 @@
 				25D00F261AA9A3CF0049C2F2 /* SinaTests */,
 				25D00F0B1AA9A3CF0049C2F2 /* Products */,
 				5782828BCA453E1850ACFC8C /* Frameworks */,
-				38D7A5991A54EAEAEDA2256E /* Pods */,
+				A3E63362DECB03A5A81CF187 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -520,6 +526,8 @@
 				25D00F3D1AA9A4370049C2F2 /* HomeController.m */,
 				25D015411AA9BB9C0049C2F2 /* HomeViewController1.h */,
 				25D015421AA9BB9C0049C2F2 /* HomeViewController1.m */,
+				25DCF08D1AC5538000C2A20C /* ProfileController.h */,
+				25DCF08E1AC5538000C2A20C /* ProfileController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,7 +539,6 @@
 				251E33251AB9899F0028DBC3 /* HJUser.m */,
 				25450C661ABEA9F9007F6D35 /* HJStatusModel.h */,
 				25450C671ABEA9F9007F6D35 /* HJStatusModel.m */,
-				25FDB5B31AC00D48007CB5D7 /* Reveal.framework */,
 				25FDB5CB1AC03819007CB5D7 /* HJStatusFrame.h */,
 				25FDB5CC1AC03819007CB5D7 /* HJStatusFrame.m */,
 				25FDB5CE1AC03844007CB5D7 /* HJOriginViewFrame.h */,
@@ -572,6 +579,8 @@
 				253D52371AC2E21500C822F3 /* HJStatusPhoto.m */,
 				25EA00691AC4040500CCFE5F /* HJAvatorView.h */,
 				25EA006A1AC4040500CCFE5F /* HJAvatorView.m */,
+				25DCF0921AC5930000C2A20C /* HeaderView.h */,
+				25DCF0931AC5930000C2A20C /* HeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -688,22 +697,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38D7A5991A54EAEAEDA2256E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E9F31C5CC63E47F66728940C /* Pods.debug.xcconfig */,
-				64028C594BE2706D0451882F /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		5782828BCA453E1850ACFC8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25DCF0871AC533FF00C2A20C /* Reveal1.5_cracked.app */,
 				25EA00671AC3FBEB00CCFE5F /* Reveal.framework */,
 				AC2847FDCB89C059E7EE6FBF /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3E63362DECB03A5A81CF187 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3DC1AF9EAFAE3198D06361AE /* Pods.debug.xcconfig */,
+				1BC84E25086805D1A49DA64B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -852,6 +862,7 @@
 				25FDB5D01AC03844007CB5D7 /* HJOriginViewFrame.m in Sources */,
 				25FDB5DF1AC05A48007CB5D7 /* HJStatusDetailView.m in Sources */,
 				254856111ABAAECE006C66F8 /* HJPhotoView.m in Sources */,
+				25DCF0901AC5538000C2A20C /* ProfileController.m in Sources */,
 				25D0153A1AA9A4380049C2F2 /* MessageController.m in Sources */,
 				25EA00781AC44BDF00CCFE5F /* CellModel.m in Sources */,
 				254856141ABABC86006C66F8 /* HJToolBar.m in Sources */,
@@ -881,6 +892,7 @@
 				25FDB5E21AC05A69007CB5D7 /* HJRetweenedView.m in Sources */,
 				25FDB5AB1ABFA00F007CB5D7 /* NSDate+Extention.m in Sources */,
 				2546959F1AAC1FC000122053 /* AFNetworkReachabilityManager.m in Sources */,
+				25DCF0941AC5930000C2A20C /* HeaderView.m in Sources */,
 				25D015371AA9A4380049C2F2 /* UIImage+Extendion.m in Sources */,
 				254695B11AAC415000122053 /* TitleButton.m in Sources */,
 				25D015491AA9CCA90049C2F2 /* MessageDetailController.m in Sources */,
@@ -1016,7 +1028,7 @@
 		};
 		25D00F2E1AA9A3CF0049C2F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9F31C5CC63E47F66728940C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 3DC1AF9EAFAE3198D06361AE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1030,14 +1042,14 @@
 				INFOPLIST_FILE = Sina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				"OTHER_LIBTOOLFLAGS[arch=*]" = "$(OTHER_LDFLAGS) -lz -framework  Reveal";
+				"OTHER_LIBTOOLFLAGS[arch=*]" = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		25D00F2F1AA9A3CF0049C2F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64028C594BE2706D0451882F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 1BC84E25086805D1A49DA64B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

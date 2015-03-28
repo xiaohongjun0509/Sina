@@ -15,7 +15,7 @@
     _model = model;
     CGSize nameSize = [model.user.name sizeWithFont:NameFont constrainedToSize:CGSizeMake(200, 20)];
     self.nameRect = CGRectMake(PaddingInset, PaddingInset, nameSize.width, nameSize.height);
-    CGSize introSize = [model.text sizeWithFont:IntroFont constrainedToSize:CGSizeMake(300, MAXFLOAT)];
+    CGSize introSize = [model.text sizeWithFont:IntroFont constrainedToSize:CGSizeMake(SCREENWIDTH - 2*PaddingInset, MAXFLOAT)];
     self.introRect = CGRectMake(PaddingInset, CGRectGetMaxY(self.nameRect) + PaddingInset, introSize.width, introSize.height);
 //    self.picArray = [NSMutableArray array];
     int h = CGRectGetMaxY(self.introRect);

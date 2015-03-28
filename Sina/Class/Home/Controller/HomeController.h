@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+Extention.h"
-@interface HomeController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface HomeController : UIViewController<UITableViewDataSource,UITableViewDelegate,NSURLConnectionDataDelegate>
+
+
+@property (nonatomic,copy) NSString  *cachePath;
 
 -(void)showRefreshControl;
 

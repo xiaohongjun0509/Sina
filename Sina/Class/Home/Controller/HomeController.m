@@ -218,10 +218,110 @@ static const NSString *GetParams = @"https://api.weibo.com/2/statuses/friends_ti
 -(void)leftButtonClick
 {
     NSLog(@"leftButtonClick");
+    /**
+     *  1.获得下载文件的长度
+     2.想POST请求头中分别写入要下在文件的长度，再来下载
+     3.
+     
+     *
+     *  @return <#return value description#>
+     */
+    
+    NSURL * url = [NSURL URLWithString:@"http://www.sinaimg.cn/dy/slidenews/4_img/2015_11/704_1575962_849639.jpg"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"HEAD";
+    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connect start];
+    
+    
+    
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    
+    //如果多个网络请求的代理都是这个方法，如何区分这么多的请求的response呢。。。NSURLConnection -> NSURLRequest ->NSURL >absoluteString.
+    long long len = response.expectedContentLength;
+    [self startDownload:response.URL length:len];
+//    [self];
+//    NSLog(@"response ------ %@",response);
+}
+
+
+- (void)startDownload:(NSURL *)url length:(long long)len
+{
+//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSString *picName  =[url.absoluteString substringFromIndex:(url.absoluteString.length - 10)];
+    [self setCachePath:picName];
+    //判断文件是否存在
+        NSFileManager *filemanager = [NSFileManager defaultManager] ;
+        if ([filemanager fileExistsAtPath:_cachePath]) {
+            NSLog(@" 数据存在");
+            return;
+        }
+    long long fromPos,toPos = 0;
+    long long count  =20000;
+    long long rest = 0;
+    int threadCount = (int)len /count;
+    rest = len % count;
+    NSMutableData *content = [[NSMutableData alloc] init];
+    for (int i = 0; i <= threadCount; i++) {
+        fromPos = i * count;
+        toPos = (i + 1) *count - 1;
+        if (i == threadCount) {
+            toPos = fromPos + rest;
+        }
+        NSString *range = [[NSString alloc]initWithFormat:@"Bytes=%lld - %lld",fromPos,toPos];
+        NSMutableURLRequest *request  = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10000];
+        [request setValue:range forHTTPHeaderField:@"Range"];
+        NSLog(@"range %@",range);
+        //这里采用的是同步下载的方式
+        NSURLResponse *response  = nil;
+        NSData *data =[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:NULL];
+        [self appendData:data];
+
+    }
+    //将文件直接写入到桌面的路径上。
+    [content writeToFile:@"/Users/MLS/Desktop/1.png" atomically:YES];
 }
 
 
 
+
+- (void)appendData :(NSData *)data
+{
+    NSFileHandle *fp = [NSFileHandle fileHandleForWritingAtPath:self.cachePath];
+    if (!fp) {
+//        [[NSFileManager defaultManager] createFileAtPath:self.cachePath contents:data attributes:nil];
+        if ([data writeToFile:self.cachePath atomically:YES]) {
+            NSLog(@"create a file and write success");
+        }else{
+             NSLog(@"write failed ");
+        }
+       
+    }else
+    {
+        NSLog(@"file exist");
+        [fp seekToEndOfFile];
+        [fp writeData:data];
+        [fp closeFile];
+    }
+    
+}
+
+
+-(void)setCachePath:(NSString *)cachePath
+{
+    //获得下载的路径
+    NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    _cachePath = [cacheDir stringByAppendingPathComponent:cachePath];
+    NSLog(@"%@",_cachePath);
+
+    
+}
+
+//为什么下面的路径名会导致创建不成功呢？
+///Users/MLS/Library/Developer/CoreSimulator/Devices/8037529A-31D2-49EF-B452-0B511F681591/data/Containers/Data/Application/6E5AF9AE-0813-4C01-9625-948D1FDD27CF/Library/Caches/http:/www.sinaimg.cn/dy/slidenews/4_img/2015_11/704_1575962_849639.jpg
 -(void)rightButtonClick
 {
     NSLog(@"rightButtonClick");
