@@ -37,6 +37,9 @@
 		255345561ABC0AC0001EF900 /* HJHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 255345551ABC0AC0001EF900 /* HJHttpTool.m */; };
 		2553455D1ABC1DA3001EF900 /* UnreadModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2553455C1ABC1DA3001EF900 /* UnreadModal.m */; };
 		257B9FEE1AC45FCD004808F8 /* ProfileHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B9FED1AC45FCD004808F8 /* ProfileHeader.m */; };
+		2597996C1AC83CAE009CE417 /* HJKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2597996B1AC83CAE009CE417 /* HJKeyBoard.m */; };
+		2597996F1AC83CD6009CE417 /* HJEmotionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2597996E1AC83CD6009CE417 /* HJEmotionList.m */; };
+		259799721AC83CED009CE417 /* HJEmotionToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 259799711AC83CED009CE417 /* HJEmotionToolBar.m */; };
 		25D00F101AA9A3CF0049C2F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D00F0F1AA9A3CF0049C2F2 /* main.m */; };
 		25D00F1B1AA9A3CF0049C2F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D00F1A1AA9A3CF0049C2F2 /* Images.xcassets */; };
 		25D00F1E1AA9A3CF0049C2F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25D00F1C1AA9A3CF0049C2F2 /* LaunchScreen.xib */; };
@@ -149,6 +152,12 @@
 		2553455C1ABC1DA3001EF900 /* UnreadModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnreadModal.m; sourceTree = "<group>"; };
 		257B9FEC1AC45FCD004808F8 /* ProfileHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHeader.h; sourceTree = "<group>"; };
 		257B9FED1AC45FCD004808F8 /* ProfileHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHeader.m; sourceTree = "<group>"; };
+		2597996A1AC83CAE009CE417 /* HJKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJKeyBoard.h; sourceTree = "<group>"; };
+		2597996B1AC83CAE009CE417 /* HJKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJKeyBoard.m; sourceTree = "<group>"; };
+		2597996D1AC83CD6009CE417 /* HJEmotionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJEmotionList.h; sourceTree = "<group>"; };
+		2597996E1AC83CD6009CE417 /* HJEmotionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJEmotionList.m; sourceTree = "<group>"; };
+		259799701AC83CED009CE417 /* HJEmotionToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJEmotionToolBar.h; sourceTree = "<group>"; };
+		259799711AC83CED009CE417 /* HJEmotionToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJEmotionToolBar.m; sourceTree = "<group>"; };
 		25D00F0A1AA9A3CF0049C2F2 /* Sina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D00F0E1AA9A3CF0049C2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25D00F0F1AA9A3CF0049C2F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -308,6 +317,12 @@
 				254856101ABAAECE006C66F8 /* HJPhotoView.m */,
 				254856121ABABC86006C66F8 /* HJToolBar.h */,
 				254856131ABABC86006C66F8 /* HJToolBar.m */,
+				2597996A1AC83CAE009CE417 /* HJKeyBoard.h */,
+				2597996B1AC83CAE009CE417 /* HJKeyBoard.m */,
+				2597996D1AC83CD6009CE417 /* HJEmotionList.h */,
+				2597996E1AC83CD6009CE417 /* HJEmotionList.m */,
+				259799701AC83CED009CE417 /* HJEmotionToolBar.h */,
+				259799711AC83CED009CE417 /* HJEmotionToolBar.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -860,9 +875,11 @@
 				25D015391AA9A4380049C2F2 /* MeController.m in Sources */,
 				25FDB5D91AC03B5B007CB5D7 /* HJStatusDetailFrame.m in Sources */,
 				25FDB5D01AC03844007CB5D7 /* HJOriginViewFrame.m in Sources */,
+				2597996F1AC83CD6009CE417 /* HJEmotionList.m in Sources */,
 				25FDB5DF1AC05A48007CB5D7 /* HJStatusDetailView.m in Sources */,
 				254856111ABAAECE006C66F8 /* HJPhotoView.m in Sources */,
 				25DCF0901AC5538000C2A20C /* ProfileController.m in Sources */,
+				259799721AC83CED009CE417 /* HJEmotionToolBar.m in Sources */,
 				25D0153A1AA9A4380049C2F2 /* MessageController.m in Sources */,
 				25EA00781AC44BDF00CCFE5F /* CellModel.m in Sources */,
 				254856141ABABC86006C66F8 /* HJToolBar.m in Sources */,
@@ -891,6 +908,7 @@
 				253D52321AC2CDD300C822F3 /* HJPhotosView.m in Sources */,
 				25FDB5E21AC05A69007CB5D7 /* HJRetweenedView.m in Sources */,
 				25FDB5AB1ABFA00F007CB5D7 /* NSDate+Extention.m in Sources */,
+				2597996C1AC83CAE009CE417 /* HJKeyBoard.m in Sources */,
 				2546959F1AAC1FC000122053 /* AFNetworkReachabilityManager.m in Sources */,
 				25DCF0941AC5930000C2A20C /* HeaderView.m in Sources */,
 				25D015371AA9A4380049C2F2 /* UIImage+Extendion.m in Sources */,

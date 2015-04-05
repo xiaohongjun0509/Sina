@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import"HJToolBar.h"
+#import "HJKeyBoard.h"
 @interface ComposeMessageController : UIViewController<UITextViewDelegate,HJToolBarDelegate,UIScrollViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,NSURLConnectionDelegate>
 
 @end

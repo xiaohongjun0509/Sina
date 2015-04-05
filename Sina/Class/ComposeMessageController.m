@@ -17,16 +17,20 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
 @property (nonatomic,strong) HJToolBar *toolBar;
 @property (nonatomic,strong) NSMutableArray *imgArray;
 //@property (nonatomic,strong) NSMutableArray *picArray;
+@property (nonatomic,strong) HJKeyBoard *inputView;
+@property (nonatomic,assign) BOOL inputViewShow;
 @end
 
 @implementation ComposeMessageController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initController];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChanged:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChanged:) name:UIKeyboardWillHideNotification object:nil];
     self.imgArray = [NSMutableArray array];
+    [self initController];
+    self.inputViewShow = NO;
+
 }
 
 -(void)keyBoardChanged:(NSNotification *)notification
@@ -58,6 +62,7 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.textView resignFirstResponder];
+    self.inputViewShow = NO;
 }
 
 
@@ -167,7 +172,17 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
 
 -(void)emotionButtonDidClick
 {
-    NSLog(@"cameraButtonDidClick");
+    NSLog(@"emotionButtonDidClick");
+    if (!self.inputViewShow) {
+        self.inputViewShow = YES;
+        self.inputView  = [[HJKeyBoard alloc] init];
+        self.inputView.backgroundColor =[UIColor redColor];
+        self.textView.inputView = self.inputView;
+        //设置自定义的键盘后，需重新谈初见盘
+        [self.textView resignFirstResponder];
+        [self.textView becomeFirstResponder];
+    }
+    
 }
 
 -(void)pictureButtonDidClick
