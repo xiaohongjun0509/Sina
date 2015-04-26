@@ -10,7 +10,7 @@
 
 @interface HJEmotionList : UIView
 
-@property (nonatomic,strong)NSArray *emotions;
+@property (nonatomic,strong)NSMutableArray *emotions;
 
 
 @property (nonatomic,strong) UIPageControl *pageControl;

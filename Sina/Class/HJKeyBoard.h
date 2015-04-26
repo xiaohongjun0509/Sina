@@ -10,7 +10,12 @@
 
 #import "HJEmotionList.h"
 #import "HJEmotionToolBar.h"
-@interface HJKeyBoard : UIView
+
+
+
+
+@interface HJKeyBoard : UIView<HJEmotionToolBarDelegate>
 @property (nonatomic,strong) HJEmotionList *emotionList;
 @property (nonatomic,strong) HJEmotionToolBar *toolBar;
+@property (nonatomic,strong)NSMutableArray *emotions;
 @end

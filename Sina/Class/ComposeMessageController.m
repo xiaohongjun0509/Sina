@@ -19,6 +19,7 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
 //@property (nonatomic,strong) NSMutableArray *picArray;
 @property (nonatomic,strong) HJKeyBoard *inputView;
 @property (nonatomic,assign) BOOL inputViewShow;
+@property (nonatomic,strong) UIView *systemInputView;
 @end
 
 @implementation ComposeMessageController
@@ -30,6 +31,7 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
     self.imgArray = [NSMutableArray array];
     [self initController];
     self.inputViewShow = NO;
+//    self.systemInputView = self.textView.inputView;
 
 }
 
@@ -175,10 +177,21 @@ static  const NSString * url = @"https://api.weibo.com/2/statuses/update.json";
     NSLog(@"emotionButtonDidClick");
     if (!self.inputViewShow) {
         self.inputViewShow = YES;
+        //先保存系统的输入键盘
+//        UIView *crrentInputView = self.textView.inputView;
+//        if(crrentInputView == self.systemInputView)//在表情键盘和自定义键盘之间切换
+//        {
+//            self.inputView  = [[HJKeyBoard alloc] init];
+//            self.inputView.backgroundColor =[UIColor redColor];
+//            self.textView.inputView = self.inputView;
+//
+//        }else{
+//            self.textView.inputView = self.systemInputView;
+//        }
+        //设置自定义的键盘后，需重新弹出建盘
         self.inputView  = [[HJKeyBoard alloc] init];
         self.inputView.backgroundColor =[UIColor redColor];
         self.textView.inputView = self.inputView;
-        //设置自定义的键盘后，需重新谈初见盘
         [self.textView resignFirstResponder];
         [self.textView becomeFirstResponder];
     }

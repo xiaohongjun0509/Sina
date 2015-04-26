@@ -22,5 +22,13 @@
 @property (nonatomic,strong) UIButton *emoji;
 @property (nonatomic,strong) UIButton *lxh;
 
-
+@property (nonatomic,strong) id<HJEmotionToolBarDelegate>delegate;
 @end
+
+typedef  NS_ENUM(NSInteger, HJEmotionButtonType)
+{
+    HJEmotionButtonTypeRecent = 1000,
+    HJEmotionButtonTypeDef,
+    HJEmotionButtonTypeEmoji,
+    HJEmotionButtonTypeLxh
+};

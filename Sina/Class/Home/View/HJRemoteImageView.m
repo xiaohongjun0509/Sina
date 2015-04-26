@@ -8,7 +8,7 @@
 
 #import "HJRemoteImageView.h"
 #import "HJImageCache.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+//#import <SDWebImage/UIImageView+WebCache.h>
 @implementation HJRemoteImageView
 
 -(instancetype)initWithFrame:(CGRect)frame
